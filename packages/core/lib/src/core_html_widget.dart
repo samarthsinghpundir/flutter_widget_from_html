@@ -193,7 +193,9 @@ class HtmlWidgetState extends State<HtmlWidget> {
     if (future != null) {
       return FutureBuilder<Widget>(
         builder: (context, snapshot) {
+          print("Samarth: Snapshot in core_html_widget ${snapshot.connectionState}");
           if (snapshot.hasData) {
+            print("Samarth: Snapshot has data ${snapshot.hasData}");
             if(widget.onHtmlDataLoaded != null) {
               widget.onHtmlDataLoaded!();
             }
@@ -209,6 +211,7 @@ class HtmlWidgetState extends State<HtmlWidget> {
                   widget0,
             );
           } else {
+            print("Samarth: onLoadingBuilder in core_html_widget ${snapshot.hasData}");
             return _sliverToBoxAdapterIfNeeded(
               _wf.onLoadingBuilder(context, _rootTree) ?? widget0,
             );
